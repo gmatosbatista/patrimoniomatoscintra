@@ -1,3 +1,6 @@
+// Importar a variável app do arquivo server.js
+const app = require('./server.js');
+
 function update_main_info_toshl() {
   console.log('update_main_info_toshl() called');
   
