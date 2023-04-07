@@ -5,7 +5,7 @@ function update_main_info_toshl() {
   const total_all_accountsElement = document.getElementById('total_all_accounts');
 
   // Executar a consulta SQL para somar a coluna "balance" na tabela "toshl_accounts"
-  fetch('/api/sql', {
+  fetch('https://gestaopatrimonio.herokuapp.com/api/sql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: 'SELECT SUM(balance) AS total_all_accounts FROM toshl_accounts' })
