@@ -1184,7 +1184,13 @@
   <script src="assets/js/main.js"></script>
 
   <!-- Atualizações Toshl -->
-  <script src="assets/js/main_info_update.js"></script> 
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var script = document.createElement('script');
+      script.src = "assets/js/main_info_update.js";
+      document.body.appendChild(script);
+    });
+    </script>
 
 </body>
 
