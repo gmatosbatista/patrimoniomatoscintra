@@ -19,13 +19,6 @@ function update_main_info_toshl() {
       total_all_accountsElement.textContent = total_all_accounts.toFixed(2);
     })
     .catch(error => console.error(error));
-  
-    // Permitir solicitações de todas as origens
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
 }
 
 window.addEventListener('load', update_main_info_toshl);
