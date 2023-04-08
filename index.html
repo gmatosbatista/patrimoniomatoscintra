@@ -1186,11 +1186,10 @@
   <!-- Atualizações Toshl -->
   <script>
     document.addEventListener("DOMContentLoaded", function(event) {
-      var script = document.createElement('script');
-      script.src = "assets/js/main_info_update.js";
-      document.body.appendChild(script);
+      import('assets/js/main_info_update.js')
+        .catch(error => console.error(error));
     });
-    </script>
+  </script>
 
 </body>
 
