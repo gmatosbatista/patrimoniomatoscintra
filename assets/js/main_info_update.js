@@ -1,11 +1,11 @@
-function patrimonio_total() {
-  console.log('patrimonio_total() called');
+function total_all_accounts() {
+  console.log('total_all_accounts() called');
   
   // Selecionar o elemento que será atualizado
-  const patrimonioElement = document.getElementById('patrimonio_total');
+  const patrimonioElement = document.getElementById('total_all_accounts');
 
   // Executar a consulta ao servidor para buscar o total Balance do Toshl"
-  fetch('https://gestaopatrimonio.herokuapp.com/api/patrimonio_total')
+  fetch('https://gestaopatrimonio.herokuapp.com/api/total_all_accounts')
     .then(response => response.json())
     .then(data => {
       // Arredondar o valor para 2 casas decimais
@@ -17,4 +17,4 @@ function patrimonio_total() {
     .catch(error => console.error(error));
 }
 
-window.addEventListener('load', patrimonio_total);
+window.addEventListener('load', total_all_accounts);
