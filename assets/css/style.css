@@ -809,6 +809,7 @@ h6 {
   font-weight: 700;
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
 .dashboard .card-icon {
