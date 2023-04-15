@@ -801,11 +801,6 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 200px;
 }
 
 .dashboard .info-card h6 {
@@ -814,10 +809,6 @@ h6 {
   font-weight: 700;
   margin: 0;
   padding: 0;
-  max-width: 100%;
-   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .dashboard .card-icon {
