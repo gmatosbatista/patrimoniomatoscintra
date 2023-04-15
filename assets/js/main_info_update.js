@@ -11,10 +11,10 @@ function updateAccountSummary() {
     .then(response => response.json())
     .then(data => {
       
-      // Arredondar o valor para 2 casas decimais e formatar em Reais
-      const patrimonio = parseFloat(data.total_all_accounts).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-      const investimentos = parseFloat(data.total_investimentos).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-      const previdencia = parseFloat(data.total_previdencia).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+      // Arredondar o valor para 0 casas decimais e formatar em Reais
+      const patrimonio = parseFloat(data.total_all_accounts).toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
+      const investimentos = parseFloat(data.total_investimentos).toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
+      const previdencia = parseFloat(data.total_previdencia).toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 
       // Atualizar os elementos HTML com os valores arredondados e formatados em Reais
       patrimonioElement.textContent = patrimonio;
