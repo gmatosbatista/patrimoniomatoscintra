@@ -216,6 +216,18 @@ h6 {
   border-color: #d3d3d4;
 }
 
+/* Date Botton Filters */
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
 /* Card */
 .card {
   margin-bottom: 30px;
