@@ -24,4 +24,52 @@ function updateAccountSummary() {
     .catch(error => console.error(error));
 }
 
+// Botões para filtrar valores
+const filterCurrentMonthButton = document.getElementById('filter-current-month');
+const filterCurrentYearButton = document.getElementById('filter-current-year');
+const filterDateRangeButton = document.getElementById('filter-date-range');
+
+filterCurrentMonthButton.addEventListener('click', () => {
+  const startDate = new Date();
+  startDate.setDate(1);
+  const endDate = new Date();
+  endDate.setMonth(endDate.getMonth() + 1);
+  endDate.setDate(0);
+  updateBalanceCaixaTable(startDate, endDate);
+});
+
+filterCurrentYearButton.addEventListener('click', () => {
+  const startDate = new Date();
+  startDate.setMonth(0);
+  startDate.setDate(1);
+  const endDate = new Date();
+  updateBalanceCaixaTable(startDate, endDate);
+});
+
+filterDateRangeButton.addEventListener('click', () => {
+  const startDate = new Date(prompt("Insira a data de início (YYYY-MM-DD)"));
+  const endDate = new Date(prompt("Insira a data de término (YYYY-MM-DD)"));
+  updateBalanceCaixaTable(startDate, endDate);
+});
+
+function updateBalanceCaixaTable(startDate, endDate) {
+  fetch('https://gestaopatrimonio.herokuapp.com/api/balance_caixa')
+    .then(response => response.json())
+    .then(data => {
+      const filteredData = data.filter(item => {
+        const date = new Date(item.transaction_date);
+        return date >= startDate && date <= endDate;
+      });
+
+      let totalBalanceCaixa = 0;
+      for (let item of filteredData) {
+        totalBalanceCaixa += item.balance_caixa;
+      }
+
+      const balanceCaixaElement = document.getElementById('balance_caixa');
+      balanceCaixaElement.innerHTML = `R$ ${totalBalanceCaixa.toFixed(2)}`;
+    });
+}
+
+
 window.addEventListener('load', updateAccountSummary);
