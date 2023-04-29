@@ -71,5 +71,11 @@ function updateBalanceCaixaTable(startDate, endDate) {
     });
 }
 
+// Função para meu filtro de datas
+$(document).ready(function(){
+  $('#filter-date-range').on('click', function() {
+    $('#date-range-picker').datepicker('show');
+  });
+});
 
 window.addEventListener('load', updateAccountSummary);
