@@ -47,8 +47,8 @@ filterCurrentYearButton.addEventListener('click', () => {
 });
 
 filterDateRangeButton.addEventListener('click', () => {
-  const startDate = new Date(prompt("Insira a data de início (YYYY-MM-DD)"));
-  const endDate = new Date(prompt("Insira a data de término (YYYY-MM-DD)"));
+  const startDate = new Date($("#datepicker input[name='start']").val());
+  const endDate = new Date($("#datepicker input[name='end']").val());
   updateBalanceCaixaTable(startDate, endDate);
 });
 
@@ -72,10 +72,14 @@ function updateBalanceCaixaTable(startDate, endDate) {
 }
 
 // Função para meu filtro de datas
-$(document).ready(function(){
-  $('#filter-date-range').on('click', function() {
-    $('#date-range-picker').datepicker('show');
-  });
+$('#datepicker .input-daterange').datepicker({
+  format: "dd/mm/yyyy",
+  startDate: "01/01/2018",
+  language: "pt-BR",
+  forceParse: false,
+  daysOfWeekHighlighted: "0,6",
+  todayHighlight: true,
+  toggleActive: true
 });
 
 window.addEventListener('load', updateAccountSummary);

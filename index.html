@@ -31,6 +31,7 @@
 
   <!-- jQuery for date filter update -->
   <script src="assets/js/jQuery.js"></script>
+  <script src="assets/js/bootstrap-datepicker.js"></script>
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -640,6 +641,11 @@
           <div class="row">
             <!-- Date general filters -->
             <div class="filter">
+              <div class="input-daterange" id="datepicker">
+                <input type="text" class="input-small" name="start" />
+                <span class="add-on">to</span>
+                <input type="text" class="input-small" name="end" />
+              </div>
               <button class="btn btn-outline-secondary rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Filtros
               </button>
@@ -648,8 +654,8 @@
                   <h6>Filter</h6>
                 </li>
             
-                <li><a class="dropdown-item" href="#">Mês atual</a></li>
-                <li><a class="dropdown-item" href="#">Ano atual</a></li>
+                <li><button class="dropdown-item" id="filter-current-month">Mês atual</button></li>
+                <li><button class="dropdown-item" id="filter-current-year">Ano atual</button></li>
                 <li><button class="dropdown-item" id="filter-date-range">Selecione as datas</button></li>
               </ul>
             </div><!-- End Date general filters -->
