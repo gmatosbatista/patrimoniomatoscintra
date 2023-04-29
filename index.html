@@ -635,15 +635,21 @@
         <!-- Left side columns -->
         <div class="col-lg-8">
           <div class="row">
-            <!-- Filtros de data -->
+            <!-- Date general filters -->
             <div class="filter">
-              <a class="icon" href="#"><i class="bi bi-three-dots"></i></a>
-              <div class="btn-group" role="group">
-                <button type="button" class="btn" id="filter-current-month">Mês Atual</button>
-                <button type="button" class="btn" id="filter-current-year">Ano Atual</button>
-                <button type="button" class="btn" id="filter-date-range">Intervalo de Datas</button>
-              </div>
-            </div><!-- End Filtros de data -->
+              <button class="btn btn-outline-secondary rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Filtros
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+            
+                <li><a class="dropdown-item" href="#">Mês atual</a></li>
+                <li><a class="dropdown-item" href="#">Ano atual</a></li>
+                <li><button class="dropdown-item" id="filter-date-range">Selecione as datas</button></li>
+              </ul>
+            </div>
             <!-- Balance caixa Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">

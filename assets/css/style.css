@@ -810,6 +810,21 @@ h6 {
   padding: 8px 15px;
 }
 
+/* Date general filters */
+.filter .btn {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.filter .dropdown-menu {
+  border-radius: 20px;
+}
+
+
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
