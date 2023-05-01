@@ -24,6 +24,25 @@ function updateAccountSummary() {
     .catch(error => console.error(error));
 }
 
+function updateBalanceCaixaTable(startDate, endDate) {
+  fetch('https://gestaopatrimonio.herokuapp.com/api/balance_caixa')
+    .then(response => response.json())
+    .then(data => {
+      const filteredData = data.filter(item => {
+        const date = new Date(item.transaction_date);
+        return date >= startDate && date <= endDate;
+      });
+
+      let totalBalanceCaixa = 0;
+      for (let item of filteredData) {
+        totalBalanceCaixa += item.balance_caixa;
+      }
+
+      const balanceCaixaElement = document.getElementById('balance_caixa');
+      balanceCaixaElement.innerHTML = `R$ ${totalBalanceCaixa.toFixed(2)}`;
+    });
+}
+
 // Botões para filtrar valores
 const filterCurrentMonthButton = document.getElementById('filter-current-month');
 const filterCurrentYearButton = document.getElementById('filter-current-year');
@@ -45,40 +64,23 @@ filterCurrentYearButton.addEventListener('click', () => {
   updateBalanceCaixaTable(startDate, endDate);
 });
 
-filterDateRangeButton.addEventListener('click', () => {
-  const startDate = new Date($("#datepicker input[name='start']").val());
-  const endDate = new Date($("#datepicker input[name='end']").val());
-  updateBalanceCaixaTable(startDate, endDate);
+//Botão de range de datas
+$(document).ready(function() {
+  $('.input-daterange').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd',
+    orientation: 'bottom',
+    startDate: new Date(2023, 1, 1),
+    endDate: '+0d'
+  });
+
+  $('#filter-date-range').on('click', function() {
+    const startDate = new Date($('input[name="start"]').val());
+    const endDate = new Date($('input[name="end"]').val());
+    updateBalanceCaixaTable(startDate, endDate);
+  });
 });
 
-function updateBalanceCaixaTable(startDate, endDate) {
-  fetch('https://gestaopatrimonio.herokuapp.com/api/balance_caixa')
-    .then(response => response.json())
-    .then(data => {
-      const filteredData = data.filter(item => {
-        const date = new Date(item.transaction_date);
-        return date >= startDate && date <= endDate;
-      });
 
-      let totalBalanceCaixa = 0;
-      for (let item of filteredData) {
-        totalBalanceCaixa += item.balance_caixa;
-      }
-
-      const balanceCaixaElement = document.getElementById('balance_caixa');
-      balanceCaixaElement.innerHTML = `R$ ${totalBalanceCaixa.toFixed(2)}`;
-    });
-}
-
-// Função para meu filtro de datas
-$('#datepicker .input-daterange').datepicker({
-  format: "dd/mm/yyyy",
-  startDate: "01/01/2018",
-  language: "pt-BR",
-  forceParse: false,
-  daysOfWeekHighlighted: "0,6",
-  todayHighlight: true,
-  toggleActive: true
-});
 
 window.addEventListener('load', updateAccountSummary);
