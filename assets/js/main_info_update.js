@@ -54,6 +54,8 @@ filterCurrentMonthButton.addEventListener('click', () => {
   const endDate = new Date();
   endDate.setMonth(endDate.getMonth() + 1);
   endDate.setDate(0);
+  console.log(startDate);
+  console.log(endDate);
   updateBalanceCaixaTable(startDate, endDate);
 });
 
@@ -61,6 +63,8 @@ filterCurrentYearButton.addEventListener('click', () => {
   const today = new Date();
   const startDate = new Date(today.getFullYear(), 0, 1);
   const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  console.log(startDate);
+  console.log(endDate);
   updateBalanceCaixaTable(startDate, endDate);
 });
 
