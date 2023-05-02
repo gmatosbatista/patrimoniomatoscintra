@@ -54,10 +54,13 @@ filterCurrentMonthButton.addEventListener('click', () => {
   const endDate = new Date();
   endDate.setMonth(endDate.getMonth() + 1);
   endDate.setDate(0);
-  console.log(startDate);
-  console.log(endDate);
-  updateBalanceCaixaTable(startDate, endDate);
+  const formattedStartDate = startDate.toISOString().slice(0, 10);
+  const formattedEndDate = endDate.toISOString().slice(0, 10);
+  console.log(formattedStartDate);
+  console.log(formattedEndDate);
+  updateBalanceCaixaTable(formattedStartDate, formattedEndDate);
 });
+
 
 filterCurrentYearButton.addEventListener('click', () => {
   const today = new Date();
