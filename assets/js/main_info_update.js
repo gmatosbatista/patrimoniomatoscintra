@@ -70,8 +70,6 @@ $(document).ready(function() {
     autoclose: true,
     format: 'yyyy-mm-dd',
     orientation: 'bottom',
-    startDate: new Date(2023, 1, 1),
-    endDate: '+0d'
   });
 
   $('#filter-date-range').on('click', function() {
