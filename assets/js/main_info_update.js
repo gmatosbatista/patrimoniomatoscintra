@@ -49,11 +49,11 @@ const filterCurrentYearButton = document.getElementById('filter-current-year');
 const filterDateRangeButton = document.getElementById('filter-date-range');
 
 filterCurrentMonthButton.addEventListener('click', () => {
-  const startDate = new Date();
+  const today = new Date();
+  const startDate = new Date(today.getFullYear(), today.getMonth(), 1);
   startDate.setDate(1);
-  const endDate = new Date();
-  endDate.setMonth(endDate.getMonth() + 1);
-  endDate.setDate(0);
+  const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  endDate.setDate(endDate.getDate());
   const formattedStartDate = startDate.toISOString().slice(0, 10);
   const formattedEndDate = endDate.toISOString().slice(0, 10);
   console.log(formattedStartDate);
