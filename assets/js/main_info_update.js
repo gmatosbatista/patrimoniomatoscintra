@@ -71,7 +71,6 @@ filterCurrentYearButton.addEventListener('click', () => {
   updateBalanceCaixaTable(startDate, endDate);
 });
 
-//Botão de range de datas
 $(document).ready(function() {
   $('.input-daterange').datepicker({
     autoclose: true,
@@ -80,13 +79,16 @@ $(document).ready(function() {
   });
 
   $('#filter-date-range').on('click', function() {
-    const startDate = new Date($('input[name="start"]').val());
-    const endDate = new Date($('input[name="end"]').val());
-    console.log(startDate)
-    console.log(endDate)
+    const startDateInput = $('input[name="start"]').val();
+    const endDateInput = $('input[name="end"]').val();
+    const startDate = new Date(`${startDateInput}T00:00:00`);
+    const endDate = new Date(`${endDateInput}T00:00:00`);
+    console.log(startDate);
+    console.log(endDate);
     updateBalanceCaixaTable(startDate, endDate);
   });
 });
+
 
 
 
