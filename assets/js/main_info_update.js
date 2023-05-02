@@ -82,6 +82,8 @@ $(document).ready(function() {
   $('#filter-date-range').on('click', function() {
     const startDate = new Date($('input[name="start"]').val());
     const endDate = new Date($('input[name="end"]').val());
+    console.log(startDate)
+    console.log(endDate)
     updateBalanceCaixaTable(startDate, endDate);
   });
 });
