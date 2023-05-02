@@ -50,17 +50,12 @@ const filterDateRangeButton = document.getElementById('filter-date-range');
 
 filterCurrentMonthButton.addEventListener('click', () => {
   const today = new Date();
-  const startDate = new Date(today.getFullYear(), today.getMonth(), 1);
-  startDate.setDate(1);
-  const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-  endDate.setDate(endDate.getDate());
-  const formattedStartDate = startDate.toISOString().slice(0, 10);
-  const formattedEndDate = endDate.toISOString().slice(0, 10);
-  console.log(formattedStartDate);
-  console.log(formattedEndDate);
-  updateBalanceCaixaTable(formattedStartDate, formattedEndDate);
+  const startDate = new Date(today.getFullYear(), today.getMonth(), 1, 0, 0, 0); // definindo a hora de início como 00:00:00
+  const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0, 23, 59, 59); // definindo a hora final como 23:59:59
+  console.log(startDate);
+  console.log(endDate);
+  updateBalanceCaixaTable(startDate, endDate);
 });
-
 
 filterCurrentYearButton.addEventListener('click', () => {
   const today = new Date();
