@@ -1,2 +1,4 @@
-teste
-teste 233
+pandas
+requests
+configparser
+logging
